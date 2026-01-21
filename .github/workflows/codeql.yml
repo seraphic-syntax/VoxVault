@@ -26,6 +26,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Cache Xcode dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/Library/Developer/Xcode/DerivedData
+            ~/Library/Developer/Xcode/SourcePackages
+            .build
+          key: ${{ runner.os }}-xcode-${{ hashFiles('**/Package.resolved', '**/*.xcodeproj/project.pbxproj', 'project.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-xcode-
+
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v4
         with:
