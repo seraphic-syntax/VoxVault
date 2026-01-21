@@ -43,3 +43,6 @@ AuthKey_*.p8
 
 # Build artifacts
 build/
+
+# Local GitHub Actions runner
+actions-runner/
