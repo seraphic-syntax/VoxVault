@@ -22,10 +22,16 @@ jobs:
       run: xcodegen generate
     - name: Build for Simulator
       run: |
+        SIMULATOR_UDID=$(xcrun simctl list devices available | awk -F '[()]' '/iPhone/ { print $2; exit }')
+        if [ -z "$SIMULATOR_UDID" ]; then
+          echo "No available iPhone simulators found." >&2
+          xcrun simctl list devices
+          exit 1
+        fi
         xcodebuild build \
           -project VoxVault.xcodeproj \
           -scheme VoxVault \
-          -destination 'platform=iOS Simulator' \
+          -destination "id=$SIMULATOR_UDID" \
           CODE_SIGN_IDENTITY="" \
           CODE_SIGNING_REQUIRED=NO \
           CODE_SIGNING_ALLOWED=NO
