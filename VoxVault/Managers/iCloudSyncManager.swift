@@ -1,7 +1,6 @@
 import Foundation
 import CloudKit
 
-// MARK: - iCloud Sync Manager
 class iCloudSyncManager {
     static let shared = iCloudSyncManager()
     
@@ -69,13 +68,25 @@ class iCloudSyncManager {
         
         let query = CKQuery(recordType: "Recording", predicate: NSPredicate(value: true))
         
-        database.fetch(withQuery: query) { result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success:
-                    completion(.success([]))
-                case .failure(let error):
-                    completion(.failure(error))
+        if #available(iOS 15.0, *) {
+            database.fetch(withQuery: query) { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success:
+                        completion(.success([]))
+                    case .failure(let error):
+                        completion(.failure(error))
+                    }
+                }
+            }
+        } else {
+            database.perform(query, inZoneWith: nil) { records, error in
+                DispatchQueue.main.async {
+                    if let error = error {
+                        completion(.failure(error))
+                    } else {
+                        completion(.success([]))
+                    }
                 }
             }
         }
@@ -96,12 +107,9 @@ class iCloudSyncManager {
         
         var localizedDescription: String {
             switch self {
-            case .iCloudNotAvailable:
-                return "iCloud is not available."
-            case .uploadFailed:
-                return "Failed to upload recording."
-            case .downloadFailed:
-                return "Failed to download recordings."
+            case .iCloudNotAvailable: return "iCloud is not available."
+            case .uploadFailed: return "Failed to upload recording."
+            case .downloadFailed: return "Failed to download recordings."
             }
         }
     }
