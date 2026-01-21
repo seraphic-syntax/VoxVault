@@ -1,0 +1,45 @@
+# Xcode
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+xcuserdata/
+*.xcworkspace/*
+!*.xcworkspace/contents.xcworkspacedata
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Package Manager
+.build/
+Packages/
+
+# CocoaPods
+Pods/
+
+# Carthage
+Carthage/Build/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# VS Code
+.vscode/
+
+# Secrets
+*.p12
+*.cer
+*.mobileprovision
+*.p8
+AuthKey_*.p8
+
+# Build artifacts
+build/

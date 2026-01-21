@@ -1,0 +1,40 @@
+name: VoxVault
+options:
+  bundleIdPrefix: com.voxvault
+  deploymentTarget:
+    iOS: "14.0"
+  xcodeVersion: "15.0"
+  generateEmptyDirectories: true
+  groupSortPosition: top
+
+settings:
+  base:
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+    IPHONEOS_DEPLOYMENT_TARGET: "14.0"
+    TARGETED_DEVICE_FAMILY: "1,2"
+    SWIFT_VERSION: "5.0"
+    ENABLE_BITCODE: false
+
+targets:
+  VoxVault:
+    type: application
+    platform: iOS
+    deploymentTarget: "14.0"
+    sources:
+      - path: VoxVault
+        excludes:
+          - "**/.DS_Store"
+          - "**/*.xcodeproj"
+          - "**/*.xcworkspace"
+    settings:
+      base:
+        INFOPLIST_FILE: VoxVault/Resources/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.voxvault.app
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        CODE_SIGN_IDENTITY: ""
+        CODE_SIGNING_REQUIRED: "NO"
+        CODE_SIGNING_ALLOWED: "NO"
+        DEVELOPMENT_TEAM: ""
+    entitlements:
+      path: VoxVault/Resources/VoxVault.entitlements
