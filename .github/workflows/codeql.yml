@@ -11,7 +11,7 @@ on:
 jobs:
   analyze:
     name: Analyze (swift)
-    runs-on: macos-latest
+    runs-on: seraphic-syntax
     permissions:
       actions: read
       contents: read
