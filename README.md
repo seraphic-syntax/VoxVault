@@ -276,7 +276,8 @@ Both permissions can be modified at any time through iOS Settings.
 
 ## Development Roadmap
 
-### Version 1.0 (Current)
+### Version 1.0 (Current) 
+[![Build VoxVault](https://github.com/seraphic-syntax/VoxVault/actions/workflows/build.yml/badge.svg)](https://github.com/seraphic-syntax/VoxVault/actions/workflows/build.yml)
 
 The inaugural release establishes the foundational feature set:
 
