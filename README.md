@@ -4,7 +4,7 @@
 
 # VOXVAULT
 
-### The Definitive Audio Journaling System for iOS
+### The Definitive Audio Journaling App for iOS
 
 [![Platform](https://img.shields.io/badge/Platform-iOS%2014.0+-0A84FF?style=for-the-badge&logo=apple&logoColor=white)](https://developer.apple.com/ios/)
 [![Swift](https://img.shields.io/badge/Swift-5.0-FA7343?style=for-the-badge&logo=swift&logoColor=white)](https://swift.org/)
