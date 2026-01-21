@@ -33,7 +33,7 @@ jobs:
           build-mode: manual
 
       - name: Install XcodeGen
-        run: brew install xcodegen
+        run: arch -arm64 brew install xcodegen
 
       - name: Generate Xcode Project
         run: xcodegen generate
